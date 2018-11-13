@@ -1,5 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SelectedBird from './SelectedBird.js'
+
+
+
+
+
+
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -7,15 +13,25 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function  BirdOptions(){
 
-let num = getRandomIntInclusive(1, 10);
+function RandomizeBirds(props){
+let num1 = getRandomIntInclusive(1, 10);
+let num2 = getRandomIntInclusive(1, 10);
+let num3 = getRandomIntInclusive(1, 10);
+
+
+console.log(props.selectedBird);
   return (
     <div>
-    <h2>{num}</h2>
-    <SelectedBird />
-    </div>
+      <h3> View One(Random Birds)</h3>
+      <div className="bird" id="bird1"> {num1} </div>
+      <div className="bird" id="bird2"> {num2} </div>
+      <div className="bird" id="bird3"> {num3} </div>
 
+      {props.selectedBird && <SelectedBird />}
+
+
+    </div>
   )
 }
 
@@ -24,4 +40,4 @@ let num = getRandomIntInclusive(1, 10);
 
 
 
-export default BirdOptions;
+export default RandomizeBirds;

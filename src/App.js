@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Bird from './components/BirdPages/Bird.js';
-import BirdOptions from './components/BirdPages/BirdOptions.js'
+import RandomizeBirds from './components/BirdPages/BirdOptions.js'
 import SelectedBird from './components/BirdPages/SelectedBird.js'
+import data from './services/data.js'
 
 class App extends Component {
 
@@ -12,16 +12,20 @@ super(props);
   this.state = {
     currentView : 'welcome',
     selectedBird : '',
+    birdData: data,
+    selectedBirdData: []
 
 
   }
 }
 
   render() {
+
     return (
       <div className="App">
 
-      <BirdOptions currentBird={this.state.currentBird} />
+      <RandomizeBirds selectedBird={this.state.selectedBird} />
+
 
       </div>
     );
