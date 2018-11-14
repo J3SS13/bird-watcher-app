@@ -12,13 +12,14 @@ function getRandomInt(min, max) {
 
 function RandomizeBirds(props){
 
-let num1 = getRandomInt(1, props.birds.length);
-let num2 = getRandomInt(1, props.birds.length);
-let num3 = getRandomInt(1, props.birds.length);
+  let num1 = getRandomInt(1, props.birds.length);
+  let num2 = getRandomInt(1, props.birds.length);
+  let num3 = getRandomInt(1, props.birds.length);
 
   return (
     <div>
         <h3> This page will have three randomly generated birds... {num1}{num2}{num3}</h3>
+
       <div key='bird1' className="bird" id={num1}>
         <h2> {props.birds[num1].name}</h2>
         <p> {props.birds[num1].description}</p>
@@ -32,15 +33,13 @@ let num3 = getRandomInt(1, props.birds.length);
       </div>
 
 
-      <div key='bird3' className="bird" id={num3} onClick={()=>props.setView("info")}>
+      <div key='bird3' className="bird" id={num3} onClick={()=>props.handleSelect()}>
         <h2> {props.birds[num3].name}</h2>
         <p> {props.birds[num3].description}</p>
       </div>
 
 
-        <p> Each bird should have an onClick to update State</p>
-        <p> IF state is true, then display birds.name & birds.description based on the bird name(what is the selected Bird) </p>
-      {props.createBirds}
+
 
       {props.selectedBird && <SelectedBird />}
 

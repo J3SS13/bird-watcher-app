@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 import RandomizeBirds from './components/BirdPages/BirdOptions.js'
 import Welcome from './components/Welcome.js'
-import birds from './services/birds.js'
 import axios from 'axios';
 
 
@@ -12,26 +11,9 @@ class App extends Component {
     super(props);
     this.state = {
       currentView: 'welcome',
-      selectedBird : '',
-      birds: birds,
-      selectedBirdData: [],
-      apiData: []
     };
       this.setView = this.setView.bind(this);
-      this.handleSelect = this.handleSelect.bind(this);
   }
-
-  createBirds(){
-      return this.state.birds.map(bird => {
-        return (
-          <div>
-            <h1> {bird.name} </h1>
-            <p> {bird.description} </p>
-          </div>
-        )
-      })
-    }
-
 
   getView(){
     const view = this.state.currentView;
@@ -39,7 +21,7 @@ class App extends Component {
       case 'welcome':
         return <Welcome setView={this.setView}/>
       case 'birds':
-        return <RandomizeBirds selectedBird={this.state.selectedBird} birds={this.state.birds} handleSelect={this.handleSelect}/>
+        return <RandomizeBirds />
       default :
         return <Welcome />
     }
@@ -51,11 +33,7 @@ class App extends Component {
     });
   }
 
-  handleSelect(e){
-    this.setState({
-      selectedBird: 'info'
-    })
-  }
+
 
   render() {
     return (
