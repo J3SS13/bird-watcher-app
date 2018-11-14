@@ -2,21 +2,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import RandomizeBirds from './components/BirdPages/BirdOptions.js'
-import SelectedBird from './components/BirdPages/SelectedBird.js'
 import Welcome from './components/Welcome.js'
 import birds from './services/birds.js'
 import axios from 'axios';
 
-const API_KEY = `96a1378baf2d27606f4a619859ea9684`;
-const BASE_URL = 'https://api.flickr.com/services/rest';
-
-const PARAMS = {
-  method: 'flickr.photos.search',
-  tags: 'bird',
-  api_key: API_KEY,
-  format: 'json',
-  nojsoncallback: 1
-};
 
 class App extends Component {
   constructor(props) {
@@ -29,6 +18,7 @@ class App extends Component {
       apiData: []
     };
       this.setView = this.setView.bind(this);
+      this.handleSelect = this.handleSelect.bind(this);
   }
 
   createBirds(){
@@ -53,13 +43,19 @@ class App extends Component {
       default :
         return <Welcome />
     }
-    console.log(this.state.currentView);
   }
 
   setView(view){
     this.setState({
       currentView: view
     });
+  }
+
+  handleSelect(e){
+    const value = e.target.name;
+    this.setState({
+      selectedBird: value
+    })
   }
 
   render() {
