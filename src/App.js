@@ -20,13 +20,14 @@ class App extends Component {
       this.setView = this.setView.bind(this);
       this.createBirds = this.createBirds.bind(this);
       this.createBirdInfo = this.createBirdInfo.bind(this);
+      this.createGifs = this.createGifs.bind(this);
   }
 
   getView(){
     const view = this.state.currentView;
     switch (view) {
       case 'welcome':
-        return <Welcome setView={this.setView}/>
+        return <Welcome setView={this.setView}  createGifs={this.createGifs}/>
       case 'birds':
         return <RandomizeBirds selectedName={this.state.selectedName} birds={this.state.birds} createBirds={this.createBirds} createBirdInfo={this.createBirdInfo}/>
       default :
@@ -40,6 +41,16 @@ class App extends Component {
         <div onClick={()=>this.handleSelect(bird)} key={bird.id}> {bird.name}</div>
       )
     })
+  }
+
+
+  createGifs(){
+      return (
+        <div>
+        {this.state.gifs.map(gif => <img src={gif.images.original.url} />  )}
+      </div>
+
+    )
   }
 
 createBirdInfo(){
