@@ -12,26 +12,14 @@ class App extends Component {
     super(props);
     this.state = {
       currentView: 'welcome',
-      selectedBird : '',
+      selectedDesc : '',
+      selectedSound: '',
+      selectedName: '',
       birds: birds,
-      selectedBirdData: [],
-      apiData: []
     };
       this.setView = this.setView.bind(this);
-      this.handleSelect = this.handleSelect.bind(this);
+      this.createBirds = this.createBirds.bind(this);
   }
-
-  createBirds(){
-      return this.state.birds.map(bird => {
-        return (
-          <div>
-            <h1> {bird.name} </h1>
-            <p> {bird.description} </p>
-          </div>
-        )
-      })
-    }
-
 
   getView(){
     const view = this.state.currentView;
@@ -39,10 +27,22 @@ class App extends Component {
       case 'welcome':
         return <Welcome setView={this.setView}/>
       case 'birds':
-        return <RandomizeBirds selectedBird={this.state.selectedBird} birds={this.state.birds} handleSelect={this.handleSelect}/>
+        return <RandomizeBirds showInfo={this.state.selectedBird} birds={this.state.birds} createBirds={this.createBirds}/>
       default :
         return <Welcome />
     }
+  }
+
+  createBirds(){
+    return this.state.birds.map(bird => {
+      return (
+        <div onClick={()=>this.setState({
+          selectedName: bird.name,
+          selectedDesc: bird.description,
+          selectedSound: ''
+        })} key={bird.id}> {bird.name}</div>
+      )
+    })
   }
 
   setView(view){
@@ -51,11 +51,11 @@ class App extends Component {
     });
   }
 
-  handleSelect(e){
-    this.setState({
-      selectedBird: 'info'
-    })
-  }
+  // handleSelect(bird){
+  //   this.setState({
+  //     selectedBird: bird.name
+  //   });
+  // }
 
   render() {
     return (
