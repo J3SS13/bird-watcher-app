@@ -29,7 +29,7 @@ class App extends Component {
       case 'welcome':
         return <Welcome setView={this.setView}/>
       case 'birds':
-        return <RandomizeBirds showInfo={this.state.selectedBird} birds={this.state.birds} createBirds={this.createBirds} createBirdInfo={this.createBirdInfo}/>
+        return <RandomizeBirds selectedName={this.state.selectedName} birds={this.state.birds} createBirds={this.createBirds} createBirdInfo={this.createBirdInfo}/>
       default :
         return <Welcome />
     }
@@ -64,6 +64,7 @@ createBirdInfo(){
       selectedDesc: bird.description,
       selectedSound: ''
     });
+
   }
 
   render() {
