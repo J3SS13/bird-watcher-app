@@ -19,10 +19,10 @@ class App extends Component {
       selectedSound: '',
       selectedName: '',
       birds: birds,
-      gifs: []
+      gifs: [],
+      birdsOnPage: []
     };
       this.setView = this.setView.bind(this);
-      this.createBirds = this.createBirds.bind(this);
       this.createBirdInfo = this.createBirdInfo.bind(this);
       this.createGifs = this.createGifs.bind(this);
   }
@@ -37,32 +37,23 @@ class App extends Component {
       case 'gif':
         return <Gif createGifs={this.createGifs}/>
       case 'random':
-        return <RandomBird birds={this.state.birds}/>
+        return <RandomBird birds={this.state.birds} handleSelect={this.handleSelect}/>
       default :
         return <Welcome />
     }
   }
-
-  createBirds(){
-    return this.state.birds.map(bird => {
-      return (
-        <div onClick={()=>this.handleSelect(bird)} key={bird.id}>
-          {console.log("works")}
-          <img src={bird.image} alt="bird"/>
-        </div>
-      )
-    })
-  }
-
 
   createGifs(){
       return (
         <div>
         {this.state.gifs.map(gif => <img src={gif.images.original.url} alt="bird gif" key={gif.id} />  )}
       </div>
-
     )
   }
+
+
+
+
 
 createBirdInfo(){
   console.log("this ran");

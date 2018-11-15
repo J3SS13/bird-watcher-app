@@ -1,0 +1,22 @@
+.bird-container {
+display: grid;
+grid-template-columns: 1fr 1.5fr 1fr 1fr;
+grid-template-rows: repeat(3, 1fr);
+grid-template-areas:
+  " bird0 . . ."
+  ". bird1 . bird2"
+  ". . . .";
+}
+
+#bird0{
+  grid-area: bird0;
+}
+
+#bird1 {
+  grid-area: bird1;
+}
+
+#bird2 {
+  transform: rotateY(180deg);
+  grid-area: bird2;
+}
