@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import './App.css';
-import RandomizeBirds from './components/BirdPages/BirdOptions.js';
+import BirdLibrary from './components/BirdPages/BirdLibrary.js';
 import Welcome from './components/Welcome/Welcome.js';
 import birds from './services/birds.js';
 import birdGifs from './services/api.js';
@@ -32,11 +32,11 @@ class App extends Component {
     switch (view) {
       case 'welcome':
         return <Welcome setView={this.setView} />
-      case 'birds':
-        return <RandomizeBirds selectedName={this.state.selectedName} birds={this.state.birds} createBirds={this.createBirds} createBirdInfo={this.createBirdInfo}/>
+      case 'library':
+        return <BirdLibrary  birds={this.state.birds}/>
       case 'gif':
         return <Gif createGifs={this.createGifs}/>
-      case 'random':
+      case 'birds':
         return <GenerateBirds birds={this.state.birds} handleSelect={this.handleSelect} selectedDesc={this.state.selectedDesc} selectedName={this.state.selectedName}/>
       default :
         return <Welcome />
