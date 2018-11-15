@@ -46,7 +46,10 @@ class App extends Component {
   createBirds(){
     return this.state.birds.map(bird => {
       return (
-        <div onClick={()=>this.handleSelect(bird)} key={bird.id}> {bird.name}</div>
+        <div onClick={()=>this.handleSelect(bird)} key={bird.id}>
+          {console.log("works")}
+          <img src={bird.image} alt="bird"/>
+        </div>
       )
     })
   }
@@ -64,7 +67,10 @@ class App extends Component {
 createBirdInfo(){
   console.log("this ran");
   return (
-    <div className="info" key="info"> <h1> {this.state.selectedName} </h1> <p> {this.state.selectedDesc} </p> </div>
+    <div className="info" key="info">
+      <h1> {this.state.selectedName} </h1>
+      <p> {this.state.selectedDesc} </p>
+    </div>
   )
 }
 

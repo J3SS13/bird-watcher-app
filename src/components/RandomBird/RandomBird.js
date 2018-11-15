@@ -13,6 +13,7 @@ let num = getRandomIntInclusive(1, 10);
 
   return (
   <div className="random-bird" >
+
       <h3> {props.birds[num].name}</h3>
       <p>{props.birds[num].description}</p>
 
