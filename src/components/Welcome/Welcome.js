@@ -12,9 +12,9 @@ return(
 
   <div>
     <h1> Welcome! </h1>
-    {props.createGifs()}
     <button onClick={() => props.setView('birds')}> Find Birds </button>
-
+    <button onClick={() => props.setView('gif')}> Birds GIFs </button>
+    <button onClick={() => props.setView('random')}> Random Bird </button>
 </div>
   )
 }
