@@ -5,7 +5,7 @@ grid-template-rows: repeat(3, 1fr);
 grid-template-areas:
   " bird0 . . ."
   ". bird1 . bird2"
-  ". . . .";
+  ". info info .";
 }
 
 #bird0{
@@ -19,4 +19,8 @@ grid-template-areas:
 #bird2 {
   transform: rotateY(180deg);
   grid-area: bird2;
+}
+
+#bird-info{
+  grid-area: info;
 }

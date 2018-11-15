@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css'
+import BirdInfo from './BirdInfo.js'
 
 
 function getRandomInt(min, max) {
@@ -9,7 +10,7 @@ function getRandomInt(min, max) {
 }
 
 
-function RandomBird(props){
+function GenerateBirds(props){
   const randomBirds = [];
   let counter = 0;
 
@@ -36,8 +37,10 @@ function RandomBird(props){
     )
   }
 
+  {props.selectedName && <BirdInfo selectedDesc={props.selectedDesc} selectedName={props.selectedName}/>}
+
     </div>
 )
 }
 
-export default RandomBird;
+export default GenerateBirds;

@@ -6,7 +6,7 @@ import Welcome from './components/Welcome/Welcome.js';
 import birds from './services/birds.js';
 import birdGifs from './services/api.js';
 import Gif from './components/Gif/Gif.js';
-import RandomBird from './components/RandomBird/RandomBird.js';
+import GenerateBirds from './components/GenerateBirds/GenerateBirds.js';
 import NavBar from './components/NavBar/NavBar.js';
 
 
@@ -23,8 +23,8 @@ class App extends Component {
       birdsOnPage: []
     };
       this.setView = this.setView.bind(this);
-      this.createBirdInfo = this.createBirdInfo.bind(this);
       this.createGifs = this.createGifs.bind(this);
+      this.handleSelect = this.handleSelect.bind(this);
   }
 
   getView(){
@@ -37,7 +37,7 @@ class App extends Component {
       case 'gif':
         return <Gif createGifs={this.createGifs}/>
       case 'random':
-        return <RandomBird birds={this.state.birds} handleSelect={this.handleSelect}/>
+        return <GenerateBirds birds={this.state.birds} handleSelect={this.handleSelect} selectedDesc={this.state.selectedDesc} selectedName={this.state.selectedName}/>
       default :
         return <Welcome />
     }
@@ -50,20 +50,6 @@ class App extends Component {
       </div>
     )
   }
-
-
-
-
-
-createBirdInfo(){
-  console.log("this ran");
-  return (
-    <div className="info" key="info">
-      <h1> {this.state.selectedName} </h1>
-      <p> {this.state.selectedDesc} </p>
-    </div>
-  )
-}
 
 
 async componentDidMount(){
