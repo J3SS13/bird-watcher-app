@@ -1,12 +1,10 @@
 
 import React, { Component } from 'react';
 import './App.css';
-import RandomizeBirds from './components/BirdPages/BirdOptions.js'
-import SelectedBird from './components/BirdPages/SelectedBird.js'
-import Welcome from './components/Welcome.js'
-import birds from './services/birds.js'
-import axios from 'axios';
-
+import RandomizeBirds from './components/BirdPages/BirdOptions.js';
+import Welcome from './components/Welcome.js';
+import birds from './services/birds.js';
+import birdGifs from './services/api.js';
 
 class App extends Component {
   constructor(props) {
@@ -17,6 +15,7 @@ class App extends Component {
       selectedSound: '',
       selectedName: '',
       birds: birds,
+      gifs: []
     };
       this.setView = this.setView.bind(this);
       this.createBirds = this.createBirds.bind(this);
@@ -49,6 +48,19 @@ createBirdInfo(){
     <div className="info" key="info"> <h1> {this.state.selectedName} </h1> <p> {this.state.selectedDesc} </p> </div>
   )
 }
+
+
+async componentDidMount(){
+  try {
+    const birds = await birdGifs();
+    this.setState({
+      gifs: birds.data.data
+    });
+  } catch(error){
+    console.log(error);
+  }
+}
+
 
 
 

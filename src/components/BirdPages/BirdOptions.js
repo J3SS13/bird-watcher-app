@@ -1,7 +1,4 @@
 import React from 'react';
-import SelectedBird from './SelectedBird.js'
-
-
 
 
 function RandomizeBirds(props){
@@ -14,9 +11,6 @@ return (
     </div>
   )
 }
-
-
-
 
 
 
