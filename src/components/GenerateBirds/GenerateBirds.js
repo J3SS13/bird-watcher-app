@@ -3,56 +3,31 @@ import './style.css'
 import BirdInfo from './BirdInfo.js'
 
 
-const randomBirds = [];
-
-//creates new array
-function newBirdArray(props){
-  props.birds.map((bird)=>{randomBirds.push(bird) })
-  return randomBirds;
-}
-
-//shuffles array
-function shuffle(array) {
-  let m = array.length, t, i;
-  // While there remain elements to shuffle…
-  while (m) {
-    // Pick a remaining element…
-    i = Math.floor(Math.random() * m--);
-    // And swap it with the current element.
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
-  }
-  return array;
-}
-
-
 function GenerateBirds(props){
-newBirdArray(props);
-shuffle(randomBirds);
+
   return (
 
     <div className="bird-container">
 
-      <div onClick={()=>props.handleSelect(randomBirds[0])}
-            key={randomBirds[0].id}
+      <div onClick={()=>props.handleSelect(props.threeBirds[0])}
+            key={props.threeBirds[0].id}
             id={`bird0`}
             className="bird-icons">
-        <img src={randomBirds[0].image} alt="bird"/>
+        <img src={props.threeBirds[0].image} alt="bird"/>
       </div>
 
-      <div onClick={()=>props.handleSelect(randomBirds[1])}
-            key={randomBirds[1].id}
+      <div onClick={()=>props.handleSelect(props.threeBirds[1])}
+            key={props.threeBirds[1].id}
             id={`bird1`}
             className="bird-icons">
-        <img src={randomBirds[1].image} alt="bird"/>
+        <img src={props.threeBirds[1].image} alt="bird"/>
       </div>
 
-      <div onClick={()=>props.handleSelect(randomBirds[2])}
-            key={randomBirds[2].id}
+      <div onClick={()=>props.handleSelect(props.threeBirds[2])}
+            key={props.threeBirds[2].id}
             id={`bird2`}
             className="bird-icons">
-        <img src={randomBirds[2].image} alt="bird"/>
+        <img src={props.threeBirds[2].image} alt="bird"/>
       </div>
 
   {props.selectedName && <BirdInfo selectedDesc={props.selectedDesc} selectedName={props.selectedName}/>}

@@ -3,7 +3,7 @@ import React from 'react'
 function NavBar(props){
   return(
     <div>
-      <button onClick={() => props.setView('welcome')}> Home </button>
+      <button onClick={() => props.resetHome('welcome')}> Home </button>
     </div>
   )
 };

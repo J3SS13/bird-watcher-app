@@ -20,34 +20,82 @@ class App extends Component {
       selectedName: '',
       birds: birds,
       gifs: [],
+      threeBirds: []
     };
       this.setView = this.setView.bind(this);
-      this.createGifs = this.createGifs.bind(this);
       this.handleSelect = this.handleSelect.bind(this);
+      this.getGenerateBird = this.getGenerateBird.bind(this);
+      this.resetHome = this.resetHome.bind(this);
   }
+
+  //creates new array
+randomizeBirds(){
+   const randomBirds =  this.state.birds.map((bird)=>{ return bird });
+
+   this.shuffle(randomBirds);
+
+    console.log(randomBirds);
+
+    const birdArr = randomBirds.slice(0, 3);
+
+    this.setState({
+      threeBirds: birdArr
+    })
+  console.log(this.state.threeBirds);
+  }
+
+  //shuffles array
+  shuffle(array) {
+    let m = array.length, t, i;
+    // While there remain elements to shuffle…
+    while (m) {
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+    return array;
+  }
+
+
+getGenerateBird(view){
+  this.randomizeBirds();
+  this.setView(view);
+
+}
+
+resetBirdInfo(){
+  this.setState({
+    selectedDesc : '',
+    selectedSound: '',
+    selectedName: '',
+  })
+}
+
+resetHome(view){
+  this.setView(view);
+  this.resetBirdInfo();
+
+}
+
+/// write function to combines set view and setState to '' for selected bird info
 
   getView(){
     const view = this.state.currentView;
     switch (view) {
       case 'welcome':
-        return <Welcome setView={this.setView} />
+        return <Welcome setView={this.setView} randomizeBirds={this.getGenerateBird} />
       case 'library':
         return <BirdLibrary  birds={this.state.birds}/>
       case 'gif':
-        return <Gif createGifs={this.createGifs}/>
+        return <Gif createGifs={this.createGifs} gifs={this.state.gifs}/>
       case 'birds':
-        return <GenerateBirds birds={this.state.birds} handleSelect={this.handleSelect} selectedDesc={this.state.selectedDesc} selectedName={this.state.selectedName}/>
+        return <GenerateBirds birds={this.state.birds} handleSelect={this.handleSelect} selectedDesc={this.state.selectedDesc} selectedName={this.state.selectedName} threeBirds={this.state.threeBirds} />
       default :
         return <Welcome />
     }
-  }
-
-  createGifs(){
-      return (
-        <div>
-        {this.state.gifs.map(gif => <img src={gif.images.original.url} alt="bird gif" key={gif.id} />  )}
-      </div>
-    )
   }
 
 
@@ -80,7 +128,7 @@ async componentDidMount(){
   render() {
     return (
       <div className="App">
-        <NavBar setView={this.setView}/>
+        <NavBar resetHome={this.resetHome}/>
         {this.getView()}
       </div>
     );

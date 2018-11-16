@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './style.css'
 
 
 function Gif(props){
@@ -7,9 +7,9 @@ function Gif(props){
 const gifs = props.gifs;
 return(
 
-  <div>
-    <h1> Bird GIFS! </h1>
-  {props.createGifs()}
+  <div className="gif-container">
+    <h1 id="gif-title"> Bird GIFS! </h1>
+    {props.gifs.map(gif => <img src={gif.images.original.url} alt="bird gif" key={gif.id} className="giphy"/>  )}
   <p> powered by GIPHY </p>
 </div>
   )

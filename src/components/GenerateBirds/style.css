@@ -17,7 +17,7 @@ grid-template-areas:
 }
 
 #bird2 {
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
   grid-area: bird2;
 }
 

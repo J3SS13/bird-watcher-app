@@ -1,12 +1,12 @@
 import React from 'react';
-
+import './style.css';
 
 function BirdLibrary(props){
 
 return (
   <div>
-  <h1> Library </h1>
-
+  <h1 class="title" id="library-title"> Library </h1>
+  <div class="library-container">
   {
     props.birds.map(bird =>
     <div
@@ -20,7 +20,7 @@ return (
     </div>
   )
 }
-
+  </div>
     </div>
   )
 }
