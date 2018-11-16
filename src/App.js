@@ -20,7 +20,6 @@ class App extends Component {
       selectedName: '',
       birds: birds,
       gifs: [],
-      birdsOnPage: []
     };
       this.setView = this.setView.bind(this);
       this.createGifs = this.createGifs.bind(this);
