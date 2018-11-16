@@ -36,21 +36,21 @@ shuffle(randomBirds);
 
       <div onClick={()=>props.handleSelect(randomBirds[0])}
             key={randomBirds[0].id}
-            id={`bird${randomBirds[0].id}`}
+            id={`bird0`}
             className="bird-icons">
         <img src={randomBirds[0].image} alt="bird"/>
       </div>
 
       <div onClick={()=>props.handleSelect(randomBirds[1])}
             key={randomBirds[1].id}
-            id={`bird${randomBirds[1].id}`}
+            id={`bird1`}
             className="bird-icons">
         <img src={randomBirds[1].image} alt="bird"/>
       </div>
 
       <div onClick={()=>props.handleSelect(randomBirds[2])}
             key={randomBirds[2].id}
-            id={`bird${randomBirds[2].id}`}
+            id={`bird2`}
             className="bird-icons">
         <img src={randomBirds[2].image} alt="bird"/>
       </div>
