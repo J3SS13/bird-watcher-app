@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './style.css';
 
 
 
@@ -10,12 +10,13 @@ function Welcome(props){
 const gifs = props.gifs;
 return(
 
-  <div>
-    <h1> Welcome! </h1>
-    <button onClick={() => props.setView('birds')}> Find Birds </button>
-    <button onClick={() => props.setView('library')}> Bird Library </button>
-    <button onClick={() => props.setView('gif')}> Birds GIFs </button>
-
+  <div className="welcome-container">
+    <h1 id="welcome-title"> Welcome! </h1>
+    <button onClick={() => props.setView('birds')} id="find-birds"> Find Birds </button>
+    <div className="secondary-container">
+      <button onClick={() => props.setView('library')} className="button-secondary" id="library"> Bird Library </button>
+      <button onClick={() => props.setView('gif')} className="button-secondary" id="giphy"> Birds GIFs </button>
+   </div>
 </div>
   )
 }

@@ -1,0 +1,48 @@
+h1{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.welcome-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    ". title ."
+    " . . . "
+    ". main ."
+    " . . ."
+    ". . ."
+    " . second .";
+  }
+
+
+
+.secondary-container{
+  grid-area: second;
+}
+
+.button-secondary{
+  background: lightgrey;
+  opacity: .8;
+  margin: 10px;
+  padding: 5px;
+}
+
+#find-birds{
+  position: relative;
+  align-items: flex-start;
+  background: lightblue;
+  opacity: .8;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+#welcome-title{
+  grid-area: title;
+  margin-top: 50px;
+}
+
+#find-birds{
+  grid-area: main;
+}
