@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import './style.css';
 
 function NavBar(props){
   return(
-    <div>
-      <button onClick={() => props.resetHome('welcome')}> Home </button>
+    <div className="nav-container">
+      <button onClick={() => props.resetHome('welcome')} className="nav-button"> Home </button>
     </div>
   )
 };

@@ -9,6 +9,8 @@ function GenerateBirds(props){
 
     <div className="bird-container">
 
+      <h1 id="bird-watcher-text"> What do you see? </h1>
+
       <div onClick={()=>props.handleSelect(props.threeBirds[0])}
             key={props.threeBirds[0].id}
             id={`bird0`}

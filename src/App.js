@@ -34,14 +34,13 @@ randomizeBirds(){
 
    this.shuffle(randomBirds);
 
-    console.log(randomBirds);
 
     const birdArr = randomBirds.slice(0, 3);
 
     this.setState({
       threeBirds: birdArr
     })
-  console.log(this.state.threeBirds);
+
   }
 
   //shuffles array

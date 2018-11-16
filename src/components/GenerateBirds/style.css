@@ -1,11 +1,27 @@
+
+.info{
+  background-color: rgba(255, 0, 0, 0.1);
+  background-blend-mode: lighten;
+
+}
+
+#info-name{
+
+}
+
+#info-desc{
+
+}
+
 .bird-container {
 display: grid;
 grid-template-columns: 1fr 1.5fr 1fr 1fr;
-grid-template-rows: repeat(3, 1fr);
+grid-template-rows: .9fr 1fr 1.1fr);
 grid-template-areas:
-  " bird0 . . ."
+  " bird0  title title ."
   ". bird1 . bird2"
-  ". info info .";
+  "info info info info";
+  margin-top: 100px;
 }
 
 #bird0{
@@ -17,10 +33,21 @@ grid-template-areas:
 }
 
 #bird2 {
-  /* transform: rotateY(180deg); */
+  transform: rotateY(180deg);
   grid-area: bird2;
 }
 
 #bird-info{
   grid-area: info;
+
+}
+
+#bird-watcher-text{
+  grid-area: title;
+  
+}
+
+
+.bird-icons{
+  width: 200px;
 }

@@ -1,0 +1,20 @@
+.nav-container{
+  background: lightgray;
+  display: grid;
+  grid-template-columns: .1fr 1fr 1fr;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-areas:
+    "nav . .";
+}
+
+
+.nav-button{
+  grid-area: nav;
+  background: none;
+  padding:10px;
+  border: none;
+  height: 50px;
+  font-size: 30px;
+  margin: 10px 80px;
+
+}
