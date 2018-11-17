@@ -14,8 +14,8 @@ return (
           className="bird-icons"
       >
       <img src={bird.image} alt="bird"/>
-      <h2> {bird.name} </h2>
-      <p> {bird.description} </p>
+      <h2 className="lib-name"> {bird.name} </h2>
+      <p className="lib-desc"> {bird.description} </p>
     </div>
   )
 }

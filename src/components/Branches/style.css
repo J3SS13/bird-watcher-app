@@ -1,0 +1,44 @@
+@keyframes left {
+  100% {
+     transform: translate(-500px);
+   }
+ }
+
+ @keyframes right {
+   100% {
+      transform: translate(500px);
+    }
+  }
+
+.branch-container{
+  position: absolute;
+  z-index: 1;
+  top: 70px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+
+
+  }
+
+
+
+#branch-left{
+  background-color: green;
+  min-width: 900px;
+  height: 900px;
+  display: inline-block;
+  animation-name: left;
+  animation-duration: 4s;
+  }
+
+
+
+#branch-right{
+  background-color: lightgreen;
+  min-width: 900px;
+  height: 900px;
+  display: inline-block;
+  animation-name: right;
+  animation-duration: 4s;
+}

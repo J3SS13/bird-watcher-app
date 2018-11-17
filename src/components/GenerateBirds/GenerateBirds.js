@@ -1,13 +1,19 @@
-import React from 'react'
-import './style.css'
-import BirdInfo from './BirdInfo.js'
+import React from 'react';
+import './style.css';
+import BirdInfo from './BirdInfo.js';
+import Branches from '../Branches/Branches.js';
 
 
 function GenerateBirds(props){
 
   return (
 
+  <div>
+  
+   <Branches />
+
     <div className="bird-container">
+
 
       <h1 id="bird-watcher-text"> What do you see? </h1>
 
@@ -35,6 +41,7 @@ function GenerateBirds(props){
   {props.selectedName && <BirdInfo selectedDesc={props.selectedDesc} selectedName={props.selectedName}/>}
 
     </div>
+  </div>
 )
 }
 
