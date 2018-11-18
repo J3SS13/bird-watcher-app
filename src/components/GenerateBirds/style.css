@@ -1,47 +1,86 @@
+.component-container{
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.main-container{
+  width:100%;
+}
+
+.bird-container {
+  positon: absolute;
+  width: 100%;
+  height:100%;
+  margin-top: 100px;
+  z-index: 1;
+  margin: 0 auto;
+
+}
+
+.bird-grid{
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: 1fr  1fr 1fr;
+    grid-template-rows: 1fr 1fr .5fr;
+    grid-template-areas:
+      "bird0  .  bird2"
+      " .  bird1 .  "
+      "info info info"
+}
+
+
 
 .info{
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: lighten;
-  padding: 40px 400px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  grid-area: info;
+  top: 0%;
 
-}
-
-
-.bird-container {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr 1fr;
-  grid-template-rows: 1fr 1.5fr .5fr;
-  grid-template-areas:
-    " bird0  title title ."
-    ". bird1 . bird2"
-    "info info info info";
-  margin-top: 100px;
 }
 
 #bird0{
   grid-area: bird0;
+  position: absolute;
+  left: 30%;
+  top: 10%;
 }
 
 #bird1 {
   grid-area: bird1;
+  position: absolute;
+  left:30%;
+
 }
 
 #bird2 {
   transform: rotateY(180deg);
   grid-area: bird2;
+  position: absolute;
+  left:20%;
+  top: 10%;
 }
 
-#bird-info{
-  grid-area: info;
-
+#info-name{
+  margin-top: 2%;
+}
+#info-desc{
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
 #bird-watcher-text{
+  font-size: 40px;
   grid-area: title;
-
-}
-
-
-.bird-icons{
-  width: 200px;
+  text-align: center;
+  positon: absolute;
+  left: 0%;
+  margin-top: 10px;
 }

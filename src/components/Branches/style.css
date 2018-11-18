@@ -1,44 +1,48 @@
 @keyframes left {
   100% {
-     transform: translate(-500px);
+     transform: translateX(-100%);
+     z-index: 1;
+
    }
  }
 
  @keyframes right {
    100% {
-      transform: translate(500px);
+      transform: translateX(100%);
+      z-index: 1;
+
     }
   }
 
-.branch-container{
-  position: absolute;
-  z-index: 1;
-  top: 70px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-
-
+@keyframes container {
+  100%{
+    z-index: -1;
   }
+}
 
+.branch {
+  width: 50%;
+  height: 100vh;
+  float:left;
+  position:relative;
+  z-index: 2;
+  transition: all 1s ease-out;
+}
 
 
 #branch-left{
   background-color: green;
-  min-width: 900px;
-  height: 900px;
-  display: inline-block;
   animation-name: left;
   animation-duration: 4s;
+  animation-fill-mode: forwards;
   }
 
 
 
 #branch-right{
-  background-color: lightgreen;
-  min-width: 900px;
-  height: 900px;
-  display: inline-block;
+  background-color: green;
   animation-name: right;
   animation-duration: 4s;
+  animation-fill-mode: forwards;
+
 }
