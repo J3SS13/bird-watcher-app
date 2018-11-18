@@ -127,7 +127,7 @@ async componentDidMount(){
   render() {
     return (
       <div className="App">
-        <NavBar resetHome={this.resetHome}/>
+        <NavBar resetHome={this.resetHome} setView={this.setView} />
         {this.getView()}
       </div>
     );

@@ -7,7 +7,6 @@ h1{
 }
 
 .welcome-container{
-  background: #C6FDFF;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(6, 1fr);
@@ -40,13 +39,15 @@ h1{
   opacity: .8;
   margin-top: 50px;
   padding: 50px;
+  border-radius: 20px;
 }
 
 #welcome-title{
   grid-area: title;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 #find-birds{
   grid-area: main;
+  font-size: 40px;
 }
