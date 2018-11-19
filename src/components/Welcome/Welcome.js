@@ -14,7 +14,7 @@ return(
 
         <h1 id="welcome-title"> Welcome! </h1>
 
-        <button onClick={() => props.randomizeBirds('birds')} id="find-birds"> Find Birds </button>
+        <button onClick={() => props.randomizeBirds('birds')} id="find-birds"> Let's go find birds! </button>
 
 
      </div>
